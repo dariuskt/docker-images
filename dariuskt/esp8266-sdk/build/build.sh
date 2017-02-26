@@ -13,6 +13,7 @@ apt-get install -y --no-install-recommends \
 	flex bison texinfo gawk ncurses-dev libexpat-dev python python-serial sed \
 	git unzip bash help2man \
 	libtool-bin \
+	minicom \
 
 
 
