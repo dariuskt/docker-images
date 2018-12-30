@@ -17,6 +17,7 @@ check_command 'git' --version
 
 check_command nodemcu-uploader --version
 check_command esptool.py version
+check_command ampy --version
 
 
 exit $EXIT_CODE

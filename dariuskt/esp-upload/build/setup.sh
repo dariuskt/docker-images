@@ -11,6 +11,7 @@ apt-get install -y python-pip
 
 pip install esptool
 pip install nodemcu-uploader
+pip install adafruit-ampy
 
 
 cp -frv /build/files/* / || true
