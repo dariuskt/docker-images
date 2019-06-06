@@ -15,7 +15,7 @@ check_command 'vim' --version
 check_command 'git' --version
 
 
-check_command code --version
+check_command code --help
 check_command platformio --version
 check_command pio --version
 

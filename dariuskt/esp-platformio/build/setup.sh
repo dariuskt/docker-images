@@ -21,6 +21,7 @@ apt-get install -y --no-install-recommends \
 	libasound2 \
 	x11-apps \
 	xvfb \
+	xauth \
 
 
 # platformio
@@ -30,8 +31,14 @@ ln -s /home/project/.platformio/penv/bin/platformio /usr/local/bin/platformio
 ln -s /home/project/.platformio/penv/bin/pio /usr/local/bin/pio
 ln -s /home/project/.platformio/penv/bin/piodebuggdb /usr/local/bin/piodebuggdb
 
-#apt-get install -y --no-install-recommends python-pip
-#pip install -U platformio
+
+# TODO:
+sudo -HEu project xvfb-run code --verbose &
+sleep 45
+killall code || true
+
+sudo -HEu project pio platform install espressif8266 espressif32
+
 
 
 cp -frv /build/files/* / || true
