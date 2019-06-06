@@ -1,4 +1,24 @@
-#!/bin/bash
+#!/bin/bash -e
+
+
+# for network_mode bridge
+DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/172.17.0.1\1/')
+
+# for network_mode host
+#DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/127.0.0.1\1/')
+
+echo "DISPLAY=$DISPLAY"
+export DISPLAY
+
+
+
+if [ "x${NFQ_PROJECT_ROOT}" != "x" ]
+then
+	cd "${NFQ_PROJECT_ROOT}"
+fi
+
+
+sudo -HEu project code
 
 
 sudo -HEu project bash
