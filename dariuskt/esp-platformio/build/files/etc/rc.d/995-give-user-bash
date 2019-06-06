@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+sudo -HEu project bash
+
+
+exit 1
+

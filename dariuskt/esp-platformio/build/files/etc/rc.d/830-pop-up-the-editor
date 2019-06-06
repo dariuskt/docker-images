@@ -1,0 +1,11 @@
+#!/bin/bash -e
+
+if [ "x${NFQ_PROJECT_ROOT}" != "x" ]
+then
+	cd "${NFQ_PROJECT_ROOT}"
+fi
+
+sudo -HEu project code
+
+exit 0
+

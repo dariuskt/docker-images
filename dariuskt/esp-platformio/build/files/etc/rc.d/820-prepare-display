@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# for network_mode bridge
+DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/172.17.0.1\1/')
+
+# for network_mode host
+#DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/127.0.0.1\1/')
+
+echo "$DISPLAY"
+
+
+exit 0
+
