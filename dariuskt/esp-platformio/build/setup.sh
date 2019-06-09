@@ -39,6 +39,8 @@ killall code || true
 
 sudo -HEu project pio platform install espressif8266 espressif32
 
+# prepare user for ttyUSB access
+usermod -a -G dialout project
 
 
 cp -frv /build/files/* / || true
