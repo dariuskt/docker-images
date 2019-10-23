@@ -1,14 +1,36 @@
-#!/bin/bash -e
+#!/bin/bash
 
+OLD_DISPLAY="$DISPLAY"
+
+function are_we_there_yet() {
+	export DISPLAY
+	sudo -u project timeout 0.5 xeyes
+	if [ $? -eq 124 ]
+	then
+		echo Success
+		OLD_DISPLAY="$DISPLAY"
+	else
+		echo FAIL
+		DISPLAY="$OLD_DISPLAY"
+	fi
+	export DISPLAY
+}
+
+
+# for network_mode host
+DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/127.0.0.1\1/')
+echo -n "~~ Checking $DISPLAY ... "; are_we_there_yet
 
 # for network_mode bridge
 DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/172.17.0.1\1/')
+echo -n "~~ Checking $DISPLAY ... "; are_we_there_yet
 
-# for network_mode host
-#DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/127.0.0.1\1/')
+# for mounted /tmp/.X11/
+DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/unix\1/')
+echo -n "~~ Checking $DISPLAY ... "; are_we_there_yet
 
-echo "DISPLAY=$DISPLAY"
-export DISPLAY
+
+echo "++ Selected DISPLAY=$DISPLAY"
 
 
 
