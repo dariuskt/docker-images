@@ -22,11 +22,13 @@ apt-get install -y --no-install-recommends \
 	x11-apps \
 	xvfb \
 	xauth \
+	python-pip \
 
 
 
 
 # platformio
+pip install virtualenv
 sudo -HEu project code --install-extension platformio.platformio-ide --force
 ln -s /home/project/.platformio/penv/bin/platformio /usr/local/bin/platformio
 ln -s /home/project/.platformio/penv/bin/pio /usr/local/bin/pio
