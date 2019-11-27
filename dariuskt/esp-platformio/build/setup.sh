@@ -23,8 +23,14 @@ apt-get install -y --no-install-recommends \
 	xvfb \
 	xauth \
 	python-pip \
+	python-setuptools \
+	make \
 
 
+# install nodemcu stuff
+pip install esptool
+pip install nodemcu-uploader
+pip install adafruit-ampy
 
 
 # platformio
