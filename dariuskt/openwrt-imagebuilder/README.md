@@ -4,7 +4,7 @@
 ### run
 
 ```
-docker run -v "$(pwd)/src:/home/project/src" dariuskt/openwrt-imagebuilder
+docker run -it --rm -v "$(pwd)/src:/home/project/src" dariuskt/openwrt-imagebuilder
 ```
 
 ### debug/customize
