@@ -11,7 +11,7 @@ apt-get install -y --no-install-recommends \
 	libncurses5-dev gawk gettext unzip file libssl-dev wget \
 	libelf-dev ecj fastjar java-propose-classpath \
 	python3-distutils \
-	libncursesw5-dev xsltproc file device-tree-compiler \
+	libncursesw5-dev xsltproc file device-tree-compiler binwalk \
 
 
 
