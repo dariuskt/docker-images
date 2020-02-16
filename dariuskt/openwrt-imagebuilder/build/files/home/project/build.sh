@@ -59,7 +59,8 @@ binwalk $KERNEL
 
 echo -e "\n\n### Building image ... "
 make clean
-make image PROFILE=a5-v11 PACKAGES="luci -dnsmasq -ppp-mod-pppoe -ppp -kmod-nf-reject6 -kmod-nf-conntrack6 -kmod-nf-ipt6 -kmod-ip6tables -libip6tc2 -odhcp6c -odhcpd-ipv6only -ip6tables"
+make image PROFILE=a5-v11 PACKAGES="luci"
+
 
 
 echo -e "\n\n### Moving image to project root a5-v11.*.bin"
