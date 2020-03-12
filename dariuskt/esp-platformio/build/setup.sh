@@ -23,6 +23,7 @@ apt-get install -y --no-install-recommends \
 	xvfb \
 	xauth \
 	python-pip \
+	python-wheel \
 	python-setuptools \
 	make \
 
@@ -44,7 +45,7 @@ ln -s /home/project/.platformio/penv/bin/piodebuggdb /usr/local/bin/piodebuggdb
 
 # TODO:
 sudo -HEu project xvfb-run code --verbose &
-sleep 60
+sleep 90
 killall code || true
 
 sudo -HEu project pio platform install espressif8266 espressif32
