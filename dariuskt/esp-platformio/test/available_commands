@@ -6,7 +6,7 @@ EXIT_CODE=0
 
 function check_command {
 	echo -n "Checking command $1 ... "
-	{ $CMD bash -l -c "$1 $2" >/dev/null 2>&1 && echo "OK"; } \
+	{ $CMD sudo -HEu project bash -l -c "$1 $2" >/dev/null 2>&1 && echo "OK"; } \
 	|| { echo "MISSING" && EXIT_CODE='-1'; }
 }
 
