@@ -1,6 +1,6 @@
 FROM nfqlt/debian-buster
 
-ENV VERSION 19.07.1
+ENV VERSION 19.07.3
 
 ADD build /build
 RUN bash /build/setup.sh && rm -Rf /build
