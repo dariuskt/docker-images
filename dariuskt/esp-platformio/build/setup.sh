@@ -25,6 +25,7 @@ apt-get install -y --no-install-recommends \
 	python-pip \
 	python-wheel \
 	python-setuptools \
+	python3-distutils \
 	make \
 
 
@@ -42,11 +43,21 @@ ln -s /home/project/.platformio/penv/bin/pio /usr/local/bin/pio
 ln -s /home/project/.platformio/penv/bin/piodebuggdb /usr/local/bin/piodebuggdb
 
 
-
-# TODO:
-sudo -HEu project xvfb-run code --verbose &
-sleep 90
+sudo -HEu project xvfb-run code --verbose 2>&1 | tee /tmp/vscode &
+timeout=60
+while [ $timeout -gt 0 ]
+do
+	if grep -Fq 'update#setState checking for updates' </tmp/vscode
+	then
+		break
+	else
+		sleep 1
+		((timeout--))
+	fi
+done
+sleep 30
 killall code || true
+
 
 sudo -HEu project pio platform install espressif8266 espressif32
 
