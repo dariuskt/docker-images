@@ -9,6 +9,12 @@ then
 	mv ../build.sh ./
 fi
 
+if [ ! -f flash.sh ]
+then
+	mv ../flash.sh ./
+fi
+
+
 sudo -HEu project bash -lc ./build.sh
 
 
