@@ -9,6 +9,11 @@ then
 	mv ../build.sh ./
 fi
 
+if [ ! -f pack.sh ]
+then
+	mv ../pack.sh ./
+fi
+
 if [ ! -f flash.sh ]
 then
 	mv ../flash.sh ./

@@ -66,11 +66,7 @@ fi
 
 
 echo -ne "\n\n# Preparing image for flashing (full.img)\n\n"
-
-cp uboot.img full.img
-dd if=/dev/null of=full.img bs=1 count=1 seek=$((0x0050000))
-cat a5-v11.sysupgrade.bin >> full.img
-dd if=/dev/null of=full.img bs=1 count=1 seek=$((0x1000000))
+./pack.sh
 
 
 echo -ne "\n\n# Inspecting the result"
