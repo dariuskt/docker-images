@@ -1,0 +1,3 @@
+[submodule "nfqlt"]
+	path = nfqlt
+	url = git@github.com:dariuskt/docker-images-nfq.git
