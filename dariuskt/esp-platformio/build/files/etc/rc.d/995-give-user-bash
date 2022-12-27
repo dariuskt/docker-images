@@ -40,7 +40,7 @@ then
 fi
 
 
-sudo -HEu project code --disable-gpu --folder-uri file://${NFQ_PROJECT_ROOT}
+sudo -HEu project code --no-sandbox --disable-gpu --folder-uri file://${NFQ_PROJECT_ROOT}
 
 
 sudo -HEu project bash
