@@ -29,22 +29,32 @@ echo -n "~~ Checking $DISPLAY ... "; are_we_there_yet
 DISPLAY=$(echo "$DISPLAY" | sed 's/^[^:]*\(.*\)/unix\1/')
 echo -n "~~ Checking $DISPLAY ... "; are_we_there_yet
 
-
 echo "++ Selected DISPLAY=$DISPLAY"
-
+echo
 
 
 if [ "x${NFQ_PROJECT_ROOT}" != "x" ]
 then
-	cd "${NFQ_PROJECT_ROOT}"
+	cd "${NFQ_PROJECT_ROOT}" || exit
 fi
 
+sudo -HEu project code \
+	--no-sandbox \
+	--disable-gpu \
+	--disable-extension vscode.php-language-features \
+	--folder-uri "file://${NFQ_PROJECT_ROOT}" \
 
-sudo -HEu project code --no-sandbox --disable-gpu --folder-uri file://${NFQ_PROJECT_ROOT}
 
 
-sudo -HEu project bash
+# This check stops initialization process at a bash terminal, if there's a
+# TTY session, Otherwise SSH process inside the container would be
+# initialized by subsequent rc.d script
+if [[ -t 1 ]]
+then
+	echo 'STDOUT is attached to TTY'
 
+	sudo -HEu project bash
 
-exit 1
+	exit 1
+fi
 
